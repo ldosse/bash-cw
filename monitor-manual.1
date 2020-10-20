@@ -1,0 +1,49 @@
+.TH SAFEDEL 1
+.SH NAME
+safeDel \- safely deletes files by moving them to the $HOME/.trashCan directory.
+.SH SYNOPSIS
+.B safeDel
+[\f -r FILE\fR]
+[\f -l\fR]
+[\f -d\fR]
+[\f -t\fR]
+[\f -m\fR]
+[\f -k\fR]
+.LP
+Usage without any flag will open up an interactive menu driven version of safeDel.
+Usage with a filename will move the file (if it exists) to the trashcan directory.
+.SH DESCRIPTION
+.B safeDel
+safedel is a utility for safely deleting files in Linux, and providing an option to restore them if they are accidentally removed. safedel deletes files by moving them to a directory ~/.trashCan.
+.SS OPTION
+.TP
+\-l
+output on screen a list of the contents of the trashCan directory formatted as “file name” (without path), “size” (in bytes) and “type” for each file.
+.TP
+\-r \fIfile\fR
+recover i.e. get a specified file from the trashCan directory and place it in the current directory.
+.TP
+\-d
+delete interactively the contents of the trashCan directory.
+.TP
+\-t
+display total usage in bytes of the trashCan directory for the user of the trashcan.
+.TP
+\-m
+start the monitor(1) script process which watches the trashaCan directory for any new additions, modifications and deletions of files.
+.TP
+\-k
+kill current user’s monitor script processes.
+.SH EXAMPLES
+.TP
+Safely delete a file named index.html to your trashCan, run
+.BR safeDel
+index.html
+.TP
+List all files in the ~/.trashCan directory.
+.BR safeDel
+-l
+.SH AUTHOR
+Written by Lina Bennani Dosse (ldosse15 at alustudent dot com)
+.SH SEE ALSO
+.BR monitor (1)
